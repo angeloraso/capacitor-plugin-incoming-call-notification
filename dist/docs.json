@@ -1,0 +1,129 @@
+{
+  "api": {
+    "name": "IncomingCallNotificationPlugin",
+    "slug": "incomingcallnotificationplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "show",
+        "signature": "(data?: any) => any",
+        "parameters": [
+          {
+            "name": "data",
+            "docs": "",
+            "type": "any"
+          }
+        ],
+        "returns": "any",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "Partial",
+          "IncomingCallNotificationSettings"
+        ],
+        "slug": "show"
+      },
+      {
+        "name": "hide",
+        "signature": "() => any",
+        "parameters": [],
+        "returns": "any",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "hide"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "IncomingCallNotificationSettings",
+      "slug": "incomingcallnotificationsettings",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "callerName",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "callerNumber",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "picture",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "thereIsACallInProgress",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "declineButtonText",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "answerButtonText",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "terminateAndAnswerButtonText",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "declineSecondCallButtonText",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "holdAndAnswerButtonText",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "channelName",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "channelDescription",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "enums": []
+}

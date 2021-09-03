@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.angeloraso.plugins.incomingcallnotification">
+
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application>
+        <receiver
+            android:name=".IncomingCallNotificationReceiver"
+            android:enabled="true"
+            android:exported="true">
+        </receiver>
+
+        <activity
+            android:name=".IncomingCallNotificationActivity"
+            android:showOnLockScreen="true">
+        </activity>
+
+        <service
+            android:name=".IncomingCallNotificationService"
+            android:enabled="true"
+            android:exported="true"></service>
+    </application>
+
+</manifest>
