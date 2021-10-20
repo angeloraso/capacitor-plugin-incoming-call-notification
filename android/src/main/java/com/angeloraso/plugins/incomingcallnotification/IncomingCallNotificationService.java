@@ -12,10 +12,10 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.provider.Settings;
 import android.widget.RemoteViews;
-
 import androidx.core.app.NotificationCompat;
 
 public class IncomingCallNotificationService extends Service {
+
     public static String CLICK_ACTION = "click_incoming_call_notification";
     public static String DECLINE_ACTION = "decline_incoming_call";
     public static String ANSWER_ACTION = "answer_incoming_call";
@@ -28,14 +28,15 @@ public class IncomingCallNotificationService extends Service {
 
     private IncomingCallNotificationSettings mSettings;
 
-    public IncomingCallNotificationService() { }
+    public IncomingCallNotificationService() {}
 
     @Override
-    public IBinder onBind (Intent intent) {
+    public IBinder onBind(Intent intent) {
         return mLocalBinder;
     }
 
     class LocalBinder extends Binder {
+
         IncomingCallNotificationService getService() {
             return IncomingCallNotificationService.this;
         }
@@ -74,17 +75,22 @@ public class IncomingCallNotificationService extends Service {
      * Prevent Android from stopping the service automatically.
      */
     @Override
-    public int onStartCommand (Intent intent, int flags, int startId) {
+    public int onStartCommand(Intent intent, int flags, int startId) {
         return START_STICKY;
     }
 
-
     public void createNotification() {
         RemoteViews customView;
-        Resources res  = getResources();
+        Resources res = getResources();
         String pkgName = getPackageName();
+        IncomingCallNotificationActivity.mSettings = mSettings;
         final Intent notificationIntent = new Intent(getApplicationContext(), IncomingCallNotificationActivity.class);
-        final PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        final PendingIntent pendingIntent = PendingIntent.getActivity(
+            getApplicationContext(),
+            0,
+            notificationIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT
+        );
 
         int pictureResource = res.getIdentifier(mSettings.getPicture(), "drawable", pkgName);
         Boolean thereIsACallInProgress = mSettings.getThereIsACallInProgress();
@@ -112,7 +118,7 @@ public class IncomingCallNotificationService extends Service {
 
         final String CHANNEL_ID = "incoming-call-notification-channel-id";
         final int CHANNEL_IMPORTANCE = NotificationManager.IMPORTANCE_HIGH;
-        final long[] DEFAULT_VIBRATE_PATTERN = {0, 250, 250, 250};
+        final long[] DEFAULT_VIBRATE_PATTERN = { 0, 250, 250, 250 };
         final NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, mSettings.getChannelName(), CHANNEL_IMPORTANCE);
         notificationChannel.setDescription(mSettings.getChannelDescription());
         notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);

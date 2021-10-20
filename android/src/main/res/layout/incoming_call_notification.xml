@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="20dip"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/firstCallPictureId"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:contentDescription="Picture" />
+
+        <TextView
+            android:id="@+id/firstCallerNameId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textColor="#455346"
+            android:textSize="30dip"
+            android:textStyle="bold"
+            android:padding="5dp" />
+
+        <TextView
+            android:id="@+id/firstCallerNumberId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textSize="25dip"
+            android:textColor="#455346"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="40dip"
+        android:layout_alignParentBottom="true"
+        style="?android:attr/buttonBarStyle">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            style="?android:attr/buttonBarStyle">
+
+            <Button
+                android:id="@+id/declineButtonId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="70dip"
+                android:minWidth="70dip"
+                android:background="@drawable/button"
+                android:backgroundTint="#e76565"
+                android:drawableStart="@drawable/decline_54"
+                android:drawableTint="@android:color/white"
+                style="?android:attr/borderlessButtonStyle"/>
+
+            <TextView
+                android:id="@+id/declineButtonTextId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#455346"
+                android:textSize="20dip"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:backgroundTint="#ffffff"
+            android:background="#ffffff"
+            style="?android:attr/buttonBarStyle">
+
+            <Button
+                android:id="@+id/answerButtonId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="70dip"
+                android:minWidth="70dip"
+                android:background="@drawable/button"
+                android:backgroundTint="#157f1f"
+                android:drawableStart="@drawable/answer_54"
+                android:drawableTint="@android:color/white"
+                android:radius="6dp"
+                style="?android:attr/borderlessButtonStyle"/>
+
+            <TextView
+                android:id="@+id/answerButtonTextId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#455346"
+                android:textSize="20dip"
+                android:gravity="center"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
