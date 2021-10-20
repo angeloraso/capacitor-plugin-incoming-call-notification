@@ -11,6 +11,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -44,6 +46,13 @@ public class IncomingCallNotificationActivity extends AppCompatActivity {
 
         TextView callerNumberView = (TextView) findViewById(R.id.firstCallerNameId);
         callerNumberView.setText(mSettings.getCallerNumber());
+
+        ImageView ringingIcon = (ImageView) findViewById(R.id.ringing_icon);
+        AlphaAnimation anim = new AlphaAnimation(0.7f, 0.0f);
+        anim.setDuration(1000);
+        anim.setRepeatCount(90);
+        anim.setRepeatMode(Animation.REVERSE);
+        ringingIcon.startAnimation(anim);
 
         TextView declineButtonView = (TextView) findViewById(R.id.declineButtonTextId);
         declineButtonView.setText(mSettings.getDeclineButtonText());
