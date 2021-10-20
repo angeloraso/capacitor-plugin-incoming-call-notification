@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class IncomingCallNotificationActivity extends AppCompatActivity {
 
+    public static AppCompatActivity that;
     public static IncomingCallNotificationSettings mSettings;
 
     @Override
@@ -31,6 +32,7 @@ public class IncomingCallNotificationActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         config();
+        that = this;
     }
 
     private void config() {
@@ -67,7 +69,7 @@ public class IncomingCallNotificationActivity extends AppCompatActivity {
         );
 
         TextView answerButtonView = (TextView) findViewById(R.id.answerButtonTextId);
-        answerButtonView.setText(mSettings.getDeclineButtonText());
+        answerButtonView.setText(mSettings.getAnswerButtonText());
         Button answerButton = (Button) findViewById(R.id.answerButtonId);
         answerButton.setOnClickListener(
             new View.OnClickListener() {

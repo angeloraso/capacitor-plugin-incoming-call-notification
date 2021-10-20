@@ -5,10 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class IncomingCallNotification implements IncomingCallNotificationService.CallBack {
+
     private Context context;
     private AppCompatActivity activity;
     private IncomingCallNotificationSettings mSettings;
@@ -24,7 +24,7 @@ public class IncomingCallNotification implements IncomingCallNotificationService
 
     private ServiceConnection mConnection = new ServiceConnection() {
         public void onServiceConnected(ComponentName className, IBinder iBinder) {
-            incomingCallNotificationService = ((IncomingCallNotificationService.LocalBinder)iBinder).getService();
+            incomingCallNotificationService = ((IncomingCallNotificationService.LocalBinder) iBinder).getService();
             incomingCallNotificationService.setCallBack(IncomingCallNotification.this);
             incomingCallNotificationService.setSettings(mSettings);
             incomingCallNotificationService.createNotification();
@@ -73,6 +73,9 @@ public class IncomingCallNotification implements IncomingCallNotificationService
     }
 
     public void hide() {
+        if (IncomingCallNotificationActivity.that != null) {
+            IncomingCallNotificationActivity.that.finish();
+        }
         stopService();
     }
 
@@ -90,9 +93,7 @@ public class IncomingCallNotification implements IncomingCallNotificationService
         try {
             context.bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
             context.startForegroundService(intent);
-        } catch (Exception e) {
-
-        }
+        } catch (Exception e) {}
     }
 
     private void stopService() {
@@ -110,5 +111,4 @@ public class IncomingCallNotification implements IncomingCallNotificationService
         Intent intent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
         activity.startActivity(intent);
     }
-
 }
