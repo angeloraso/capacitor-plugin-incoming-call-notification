@@ -28,10 +28,12 @@ public class IncomingCallNotification implements IncomingCallNotificationService
             incomingCallNotificationService.setCallBack(IncomingCallNotification.this);
             incomingCallNotificationService.setSettings(mSettings);
             incomingCallNotificationService.createNotification();
+            mIsBound = true;
         }
 
         public void onServiceDisconnected(ComponentName className) {
             incomingCallNotificationService = null;
+            mIsBound = false;
         }
     };
 
@@ -82,20 +84,20 @@ public class IncomingCallNotification implements IncomingCallNotificationService
     }
 
     private void startService() {
-        if (mIsBound) {
+        if (mIsBound || mConnection == null) {
             return;
         }
 
         Intent intent = new Intent(context, IncomingCallNotificationService.class);
 
         try {
-            mIsBound = context.bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+            context.bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
             context.startForegroundService(intent);
         } catch (Exception e) {}
     }
 
     private void stopService() {
-        if (!mIsBound) {
+        if (!mIsBound || mConnection == null) {
             return;
         }
 
