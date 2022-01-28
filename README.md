@@ -16,6 +16,7 @@ npx cap sync
 * [`show(...)`](#show)
 * [`hide()`](#hide)
 * [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
 
 </docgen-index>
 
@@ -25,14 +26,14 @@ npx cap sync
 ### show(...)
 
 ```typescript
-show(data?: any) => any
+show(data?: Partial<IncomingCallNotificationSettings> | undefined) => Promise<{ response: 'click' | 'answer' | 'decline' | 'terminate'; }>
 ```
 
-| Param      | Type             |
-| ---------- | ---------------- |
-| **`data`** | <code>any</code> |
+| Param      | Type                                                                                                                                |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **`data`** | <code><a href="#partial">Partial</a>&lt;<a href="#incomingcallnotificationsettings">IncomingCallNotificationSettings</a>&gt;</code> |
 
-**Returns:** <code>any</code>
+**Returns:** <code>Promise&lt;{ response: 'click' | 'answer' | 'decline' | 'terminate'; }&gt;</code>
 
 --------------------
 
@@ -40,10 +41,8 @@ show(data?: any) => any
 ### hide()
 
 ```typescript
-hide() => any
+hide() => Promise<void>
 ```
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -66,5 +65,15 @@ hide() => any
 | **`holdAndAnswerButtonText`**      | <code>string</code>  |
 | **`channelName`**                  | <code>string</code>  |
 | **`channelDescription`**           | <code>string</code>  |
+
+
+### Type Aliases
+
+
+#### Partial
+
+Make all properties in T optional
+
+<code>{ [P in keyof T]?: T[P]; }</code>
 
 </docgen-api>
