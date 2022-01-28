@@ -72,11 +72,12 @@ public class IncomingCallNotificationService extends Service {
     }
 
     /**
-     * Prevent Android from stopping the service automatically.
+     * START_NOT_STICKY: if the process (the App) is killed with no remaining start commands to deliver,
+     * then the service will be stopped instead of restarted
      */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        return START_STICKY;
+        return START_NOT_STICKY;
     }
 
     public void createNotification() {
