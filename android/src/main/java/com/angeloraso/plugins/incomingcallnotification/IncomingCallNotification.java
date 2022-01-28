@@ -28,12 +28,10 @@ public class IncomingCallNotification implements IncomingCallNotificationService
             incomingCallNotificationService.setCallBack(IncomingCallNotification.this);
             incomingCallNotificationService.setSettings(mSettings);
             incomingCallNotificationService.createNotification();
-            mIsBound = true;
         }
 
         public void onServiceDisconnected(ComponentName className) {
             incomingCallNotificationService = null;
-            mIsBound = false;
         }
     };
 
@@ -91,7 +89,7 @@ public class IncomingCallNotification implements IncomingCallNotificationService
         Intent intent = new Intent(context, IncomingCallNotificationService.class);
 
         try {
-            context.bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+            mIsBound = context.bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
             context.startForegroundService(intent);
         } catch (Exception e) {}
     }
