@@ -39,25 +39,33 @@ public class IncomingCallNotification implements IncomingCallNotificationService
 
     @Override
     public void onClick() {
-        mListener.onClick();
-        openApp();
+        if (mListener != null) {
+            mListener.onClick();
+            openApp();
+        }
     }
 
     @Override
     public void onDecline() {
-        mListener.onDecline();
+        if (mListener != null) {
+            mListener.onDecline();
+        }
     }
 
     @Override
     public void onAnswer() {
-        mListener.onAnswer();
-        openApp();
+        if (mListener != null) {
+            mListener.onAnswer();
+            openApp();
+        }
     }
 
     @Override
     public void onTerminate() {
-        mListener.onTerminate();
-        openApp();
+        if (mListener != null) {
+            mListener.onTerminate();
+            openApp();
+        }
     }
 
     /**
@@ -80,6 +88,10 @@ public class IncomingCallNotification implements IncomingCallNotificationService
     }
 
     public void onResume() {
+        hide();
+    }
+
+    public void onDestroy() {
         hide();
     }
 

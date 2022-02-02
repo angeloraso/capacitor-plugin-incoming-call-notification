@@ -109,4 +109,12 @@ public class IncomingCallNotificationPlugin extends Plugin {
         incomingCallNotification.onResume();
     }
 
+    /**
+     * Called when the activity will be destroyed.
+     */
+    @Override
+    public void handleOnDestroy() {
+        incomingCallNotification.onDestroy();
+    }
+
 }
