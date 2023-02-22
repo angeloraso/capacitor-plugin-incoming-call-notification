@@ -2,13 +2,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
-    <solid android:color="#ffffff"/>
-
-    <stroke
-        android:width="2dp"
-        android:color="#f3f3f3">
-    </stroke>
-
     <padding
         android:left="5dp"
         android:top="5dp"
