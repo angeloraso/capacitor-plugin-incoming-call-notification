@@ -90,7 +90,7 @@ public class IncomingCallNotificationService extends Service {
             getApplicationContext(),
             0,
             notificationIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT
+            PendingIntent.FLAG_IMMUTABLE
         );
 
         int pictureResource = res.getIdentifier(mSettings.getPicture(), "drawable", pkgName);
@@ -157,7 +157,7 @@ public class IncomingCallNotificationService extends Service {
         Context context = getApplicationContext();
         Intent intent = new Intent(context, IncomingCallNotificationReceiver.class);
         intent.setAction(action);
-        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
     }
 
     /**
