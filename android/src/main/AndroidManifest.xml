@@ -9,18 +9,14 @@
         <receiver
             android:name=".IncomingCallNotificationReceiver"
             android:enabled="true"
-            android:exported="true">
+            android:exported="false">
         </receiver>
 
-        <activity
-            android:name=".IncomingCallNotificationActivity"
-            android:showOnLockScreen="true">
-        </activity>
-
         <service
-            android:name=".IncomingCallNotificationService"
-            android:enabled="true"
-            android:exported="true"></service>
+              android:name=".IncomingCallNotificationService"
+              android:enabled="true"
+              android:foregroundServiceType="microphone|phoneCall"
+              android:exported="false"></service>
     </application>
 
 </manifest>

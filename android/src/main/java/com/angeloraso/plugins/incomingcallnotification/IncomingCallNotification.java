@@ -81,9 +81,6 @@ public class IncomingCallNotification implements IncomingCallNotificationService
     }
 
     public void hide() {
-        if (IncomingCallNotificationActivity.that != null) {
-            IncomingCallNotificationActivity.that.finish();
-        }
         stopService();
     }
 
