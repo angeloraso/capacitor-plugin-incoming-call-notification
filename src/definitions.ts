@@ -4,10 +4,15 @@ export interface IncomingCallNotificationSettings {
   picture: string;
   thereIsACallInProgress: boolean;
   declineButtonText: string;
+  declineButtonColor: string;
   answerButtonText: string;
+  answerButtonColor: string;
   terminateAndAnswerButtonText: string;
+  terminateAndAnswerButtonColor: string;
   declineSecondCallButtonText: string;
+  declineSecondCallButtonColor: string;
   holdAndAnswerButtonText: string;
+  holdAndAnswerButtonColor: string;
   channelName: string;
   channelDescription: string;
 }

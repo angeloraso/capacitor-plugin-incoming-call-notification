@@ -84,7 +84,21 @@
           "type": "string"
         },
         {
+          "name": "declineButtonColor",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
           "name": "answerButtonText",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "answerButtonColor",
           "tags": [],
           "docs": "",
           "complexTypes": [],
@@ -98,6 +112,13 @@
           "type": "string"
         },
         {
+          "name": "terminateAndAnswerButtonColor",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
           "name": "declineSecondCallButtonText",
           "tags": [],
           "docs": "",
@@ -105,7 +126,21 @@
           "type": "string"
         },
         {
+          "name": "declineSecondCallButtonColor",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
           "name": "holdAndAnswerButtonText",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "holdAndAnswerButtonColor",
           "tags": [],
           "docs": "",
           "complexTypes": [],

@@ -52,19 +52,24 @@ hide() => Promise<void>
 
 #### IncomingCallNotificationSettings
 
-| Prop                               | Type                 |
-| ---------------------------------- | -------------------- |
-| **`callerName`**                   | <code>string</code>  |
-| **`callerNumber`**                 | <code>string</code>  |
-| **`picture`**                      | <code>string</code>  |
-| **`thereIsACallInProgress`**       | <code>boolean</code> |
-| **`declineButtonText`**            | <code>string</code>  |
-| **`answerButtonText`**             | <code>string</code>  |
-| **`terminateAndAnswerButtonText`** | <code>string</code>  |
-| **`declineSecondCallButtonText`**  | <code>string</code>  |
-| **`holdAndAnswerButtonText`**      | <code>string</code>  |
-| **`channelName`**                  | <code>string</code>  |
-| **`channelDescription`**           | <code>string</code>  |
+| Prop                                | Type                 |
+| ----------------------------------- | -------------------- |
+| **`callerName`**                    | <code>string</code>  |
+| **`callerNumber`**                  | <code>string</code>  |
+| **`picture`**                       | <code>string</code>  |
+| **`thereIsACallInProgress`**        | <code>boolean</code> |
+| **`declineButtonText`**             | <code>string</code>  |
+| **`declineButtonColor`**            | <code>string</code>  |
+| **`answerButtonText`**              | <code>string</code>  |
+| **`answerButtonColor`**             | <code>string</code>  |
+| **`terminateAndAnswerButtonText`**  | <code>string</code>  |
+| **`terminateAndAnswerButtonColor`** | <code>string</code>  |
+| **`declineSecondCallButtonText`**   | <code>string</code>  |
+| **`declineSecondCallButtonColor`**  | <code>string</code>  |
+| **`holdAndAnswerButtonText`**       | <code>string</code>  |
+| **`holdAndAnswerButtonColor`**      | <code>string</code>  |
+| **`channelName`**                   | <code>string</code>  |
+| **`channelDescription`**            | <code>string</code>  |
 
 
 ### Type Aliases
