@@ -151,7 +151,11 @@ public class IncomingCallNotificationService extends Service {
                 Notification.Action answerAction = new Notification.Action.Builder(
                     Icon.createWithResource(this, R.drawable.hold_and_answer_24),
                     Html.fromHtml(
-                        "<font color=\"" + Color.parseColor("#65bf6c") + "\">" + mSettings.getHoldAndAnswerButtonText() + "</font>",
+                        "<font color=\"" +
+                        Color.parseColor(mSettings.getHoldAndAnswerButtonColor()) +
+                        "\">" +
+                        mSettings.getHoldAndAnswerButtonText() +
+                        "</font>",
                         Html.FROM_HTML_MODE_LEGACY
                     ),
                     getPendingIntent(ANSWER_ACTION)
@@ -161,7 +165,11 @@ public class IncomingCallNotificationService extends Service {
                 Notification.Action declineAction = new Notification.Action.Builder(
                     Icon.createWithResource(this, R.drawable.decline_24),
                     Html.fromHtml(
-                        "<font color=\"" + Color.parseColor("#f98080") + "\">" + mSettings.getDeclineSecondCallButtonText() + "</font>",
+                        "<font color=\"" +
+                        Color.parseColor(mSettings.getDeclineSecondCallButtonColor()) +
+                        "\">" +
+                        mSettings.getDeclineSecondCallButtonText() +
+                        "</font>",
                         Html.FROM_HTML_MODE_LEGACY
                     ),
                     getPendingIntent(DECLINE_ACTION)
@@ -171,7 +179,11 @@ public class IncomingCallNotificationService extends Service {
                 Notification.Action terminateAction = new Notification.Action.Builder(
                     Icon.createWithResource(this, R.drawable.terminate_and_answer_24),
                     Html.fromHtml(
-                        "<font color=\"" + Color.parseColor("#f7a64c") + "\">" + mSettings.getTerminateAndAnswerButtonText() + "</font>",
+                        "<font color=\"" +
+                        Color.parseColor(mSettings.getTerminateAndAnswerButtonColor()) +
+                        "\">" +
+                        mSettings.getTerminateAndAnswerButtonText() +
+                        "</font>",
                         Html.FROM_HTML_MODE_LEGACY
                     ),
                     getPendingIntent(TERMINATE_ACTION)
@@ -182,7 +194,11 @@ public class IncomingCallNotificationService extends Service {
                 Notification.Action answerAction = new Notification.Action.Builder(
                     Icon.createWithResource(this, R.drawable.answer_24),
                     Html.fromHtml(
-                        "<font color=\"" + Color.parseColor("#65bf6c") + "\">" + mSettings.getAnswerButtonText() + "</font>",
+                        "<font color=\"" +
+                        Color.parseColor(mSettings.getAnswerButtonColor()) +
+                        "\">" +
+                        mSettings.getAnswerButtonText() +
+                        "</font>",
                         Html.FROM_HTML_MODE_LEGACY
                     ),
                     getPendingIntent(ANSWER_ACTION)
@@ -192,7 +208,11 @@ public class IncomingCallNotificationService extends Service {
                 Notification.Action declineAction = new Notification.Action.Builder(
                     Icon.createWithResource(this, R.drawable.decline_24),
                     Html.fromHtml(
-                        "<font color=\"" + Color.parseColor("#f98080") + "\">" + mSettings.getDeclineButtonText() + "</font>",
+                        "<font color=\"" +
+                        Color.parseColor(mSettings.getDeclineButtonColor()) +
+                        "\">" +
+                        mSettings.getDeclineButtonText() +
+                        "</font>",
                         Html.FROM_HTML_MODE_LEGACY
                     ),
                     getPendingIntent(DECLINE_ACTION)

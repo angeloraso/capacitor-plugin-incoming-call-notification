@@ -1,9 +1,7 @@
 package com.angeloraso.plugins.incomingcallnotification;
 
 import android.content.Context;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
@@ -29,32 +27,38 @@ public class IncomingCallNotificationPlugin extends Plugin {
         }
 
         IncomingCallNotificationSettings settings = getSettings(call);
-        incomingCallNotification.show(settings, new IncomingCallNotificationListener() {
-            @Override
-            public void onClick() {
-                JSObject res = new JSObject();
-                res.put("response", "click");
-                call.resolve(res);
+        incomingCallNotification.show(
+            settings,
+            new IncomingCallNotificationListener() {
+                @Override
+                public void onClick() {
+                    JSObject res = new JSObject();
+                    res.put("response", "click");
+                    call.resolve(res);
+                }
+
+                @Override
+                public void onDecline() {
+                    JSObject res = new JSObject();
+                    res.put("response", "decline");
+                    call.resolve(res);
+                }
+
+                @Override
+                public void onAnswer() {
+                    JSObject res = new JSObject();
+                    res.put("response", "answer");
+                    call.resolve(res);
+                }
+
+                @Override
+                public void onTerminate() {
+                    JSObject res = new JSObject();
+                    res.put("response", "terminate");
+                    call.resolve(res);
+                }
             }
-            @Override
-            public void onDecline() {
-                JSObject res = new JSObject();
-                res.put("response", "decline");
-                call.resolve(res);
-            }
-            @Override
-            public void onAnswer() {
-                JSObject res = new JSObject();
-                res.put("response", "answer");
-                call.resolve(res);
-            }
-            @Override
-            public void onTerminate() {
-                JSObject res = new JSObject();
-                res.put("response", "terminate");
-                call.resolve(res);
-            }
-        });
+        );
     }
 
     @PluginMethod
@@ -91,6 +95,21 @@ public class IncomingCallNotificationPlugin extends Plugin {
         if (call.hasOption("holdAndAnswerButtonText")) {
             settings.setHoldAndAnswerButtonText((call.getString("holdAndAnswerButtonText")));
         }
+        if (call.hasOption("declineButtonColor")) {
+            settings.setDeclineButtonColor((call.getString("declineButtonColor")));
+        }
+        if (call.hasOption("answerButtonColor")) {
+            settings.setAnswerButtonColor((call.getString("answerButtonColor")));
+        }
+        if (call.hasOption("terminateAndAnswerButtonColor")) {
+            settings.setTerminateAndAnswerButtonColor((call.getString("terminateAndAnswerButtonColor")));
+        }
+        if (call.hasOption("declineSecondCallButtonColor")) {
+            settings.setDeclineSecondCallButtonColor((call.getString("declineSecondCallButtonColor")));
+        }
+        if (call.hasOption("holdAndAnswerButtonColor")) {
+            settings.setHoldAndAnswerButtonColor((call.getString("holdAndAnswerButtonColor")));
+        }
         if (call.hasOption("channelName")) {
             settings.setChannelName((call.getString("channelName")));
         }
@@ -105,7 +124,7 @@ public class IncomingCallNotificationPlugin extends Plugin {
      * Called when the activity will start interacting with the user.
      */
     @Override
-    public void handleOnResume () {
+    public void handleOnResume() {
         incomingCallNotification.onResume();
     }
 
@@ -116,5 +135,4 @@ public class IncomingCallNotificationPlugin extends Plugin {
     public void handleOnDestroy() {
         incomingCallNotification.onDestroy();
     }
-
 }

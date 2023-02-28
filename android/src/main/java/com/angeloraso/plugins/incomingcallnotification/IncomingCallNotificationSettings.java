@@ -1,15 +1,21 @@
 package com.angeloraso.plugins.incomingcallnotification;
 
 public class IncomingCallNotificationSettings {
+
     private String callerName = "Unknown";
     private String callerNumber = "Unknown";
     private String picture = "picture";
     private Boolean thereIsACallInProgress = false;
     private String declineButtonText = "Decline";
+    private String declineButtonColor = "#e76565";
     private String answerButtonText = "Answer";
+    private String answerButtonColor = "#65bf6c";
     private String terminateAndAnswerButtonText = "Terminate & answer";
+    private String terminateAndAnswerButtonColor = "#fac281";
     private String declineSecondCallButtonText = "Decline";
+    private String declineSecondCallButtonColor = "#e76565";
     private String holdAndAnswerButtonText = "Hold & answer";
+    private String holdAndAnswerButtonColor = "#65bf6c";
     private String channelName = "incoming-call-notification";
     private String channelDescription = "Incoming call notification";
 
@@ -53,12 +59,28 @@ public class IncomingCallNotificationSettings {
         this.declineButtonText = declineButtonText;
     }
 
+    public String getDeclineButtonColor() {
+        return declineButtonColor;
+    }
+
+    public void setDeclineButtonColor(String declineButtonColor) {
+        this.declineButtonColor = declineButtonColor;
+    }
+
     public String getAnswerButtonText() {
         return answerButtonText;
     }
 
     public void setAnswerButtonText(String answerButtonText) {
         this.answerButtonText = answerButtonText;
+    }
+
+    public String getAnswerButtonColor() {
+        return answerButtonColor;
+    }
+
+    public void setAnswerButtonColor(String answerButtonColor) {
+        this.answerButtonColor = answerButtonColor;
     }
 
     public String getTerminateAndAnswerButtonText() {
@@ -69,6 +91,14 @@ public class IncomingCallNotificationSettings {
         this.terminateAndAnswerButtonText = terminateAndAnswerButtonText;
     }
 
+    public String getTerminateAndAnswerButtonColor() {
+        return terminateAndAnswerButtonColor;
+    }
+
+    public void setTerminateAndAnswerButtonColor(String terminateAndAnswerButtonColor) {
+        this.terminateAndAnswerButtonColor = terminateAndAnswerButtonColor;
+    }
+
     public String getDeclineSecondCallButtonText() {
         return declineSecondCallButtonText;
     }
@@ -77,12 +107,28 @@ public class IncomingCallNotificationSettings {
         this.declineSecondCallButtonText = declineSecondCallButtonText;
     }
 
+    public String getDeclineSecondCallButtonColor() {
+        return declineSecondCallButtonColor;
+    }
+
+    public void setDeclineSecondCallButtonColor(String declineSecondCallButtonColor) {
+        this.declineSecondCallButtonColor = declineSecondCallButtonColor;
+    }
+
     public String getHoldAndAnswerButtonText() {
         return holdAndAnswerButtonText;
     }
 
     public void setHoldAndAnswerButtonText(String holdAndAnswerButtonText) {
         this.holdAndAnswerButtonText = holdAndAnswerButtonText;
+    }
+
+    public String getHoldAndAnswerButtonColor() {
+        return holdAndAnswerButtonColor;
+    }
+
+    public void setHoldAndAnswerButtonColor(String holdAndAnswerButtonColor) {
+        this.holdAndAnswerButtonColor = holdAndAnswerButtonColor;
     }
 
     public String getChannelName() {
