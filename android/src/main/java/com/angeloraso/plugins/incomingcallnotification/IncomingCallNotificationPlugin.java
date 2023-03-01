@@ -110,6 +110,9 @@ public class IncomingCallNotificationPlugin extends Plugin {
         if (call.hasOption("holdAndAnswerButtonColor")) {
             settings.setHoldAndAnswerButtonColor((call.getString("holdAndAnswerButtonColor")));
         }
+        if (call.hasOption("notificationBackgroundColor")) {
+            settings.setNotificationBackgroundColor((call.getString("notificationBackgroundColor")));
+        }
         if (call.hasOption("channelName")) {
             settings.setChannelName((call.getString("channelName")));
         }

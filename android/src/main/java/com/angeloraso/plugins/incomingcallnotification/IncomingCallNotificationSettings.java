@@ -12,6 +12,7 @@ public class IncomingCallNotificationSettings {
     private String answerButtonColor = "#65bf6c";
     private String terminateAndAnswerButtonText = "Terminate & answer";
     private String terminateAndAnswerButtonColor = "#fac281";
+    private String notificationBackgroundColor = "#fafafa";
     private String declineSecondCallButtonText = "Decline";
     private String declineSecondCallButtonColor = "#e76565";
     private String holdAndAnswerButtonText = "Hold & answer";
@@ -129,6 +130,14 @@ public class IncomingCallNotificationSettings {
 
     public void setHoldAndAnswerButtonColor(String holdAndAnswerButtonColor) {
         this.holdAndAnswerButtonColor = holdAndAnswerButtonColor;
+    }
+
+    public String getNotificationBackgroundColor() {
+        return notificationBackgroundColor;
+    }
+
+    public void setNotificationBackgroundColor(String notificationBackgroundColor) {
+        this.notificationBackgroundColor = notificationBackgroundColor;
     }
 
     public String getChannelName() {
