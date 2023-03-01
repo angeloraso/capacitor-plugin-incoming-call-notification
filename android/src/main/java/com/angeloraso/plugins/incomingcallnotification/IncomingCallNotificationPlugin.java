@@ -113,6 +113,9 @@ public class IncomingCallNotificationPlugin extends Plugin {
         if (call.hasOption("color")) {
             settings.setColor((call.getString("color")));
         }
+        if (call.hasOption("picture")) {
+            settings.setPicture((call.getString("picture")));
+        }
         if (call.hasOption("channelName")) {
             settings.setChannelName((call.getString("channelName")));
         }

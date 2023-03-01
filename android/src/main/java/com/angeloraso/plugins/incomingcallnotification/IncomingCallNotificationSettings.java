@@ -4,7 +4,8 @@ public class IncomingCallNotificationSettings {
 
     private String callerName = "Unknown";
     private String callerNumber = "Unknown";
-    private String icon = "icon";
+    private String icon = "answer_24";
+    private String picture = "picture";
     private Boolean thereIsACallInProgress = false;
     private String declineButtonText = "Decline";
     private String declineButtonColor = "#e76565";
@@ -138,6 +139,14 @@ public class IncomingCallNotificationSettings {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public String getChannelName() {

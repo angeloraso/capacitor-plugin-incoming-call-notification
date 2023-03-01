@@ -70,6 +70,13 @@
           "type": "string"
         },
         {
+          "name": "picture",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
           "name": "thereIsACallInProgress",
           "tags": [],
           "docs": "",

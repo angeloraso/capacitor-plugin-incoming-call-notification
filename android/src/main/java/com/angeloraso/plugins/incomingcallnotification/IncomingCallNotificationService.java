@@ -91,6 +91,12 @@ public class IncomingCallNotificationService extends Service {
             iconResource = getApplicationContext().getApplicationInfo().icon;
         }
 
+        String pictureName = mSettings.getPicture();
+        int pictureResource = getIconResId(pictureName);
+        if (pictureResource == 0) { // If no icon at all was found, fall back to the app's icon
+            pictureResource = getApplicationContext().getApplicationInfo().icon;
+        }
+
         final String CHANNEL_ID = "incoming-call-notification-channel-id";
         final int CHANNEL_IMPORTANCE = NotificationManager.IMPORTANCE_HIGH;
         final long[] DEFAULT_VIBRATE_PATTERN = { 0, 250, 250, 250 };
@@ -127,7 +133,7 @@ public class IncomingCallNotificationService extends Service {
 
         // Android 12+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !thereIsACallInProgress) {
-            Icon icon = Icon.createWithResource(this, iconResource);
+            Icon icon = Icon.createWithResource(this, pictureResource);
             Person caller = new Person.Builder()
                 .setIcon(icon)
                 .setName(mSettings.getCallerName() + " - " + mSettings.getCallerNumber())
@@ -138,6 +144,8 @@ public class IncomingCallNotificationService extends Service {
             notificationStyle =
                 Notification.CallStyle.forIncomingCall(caller, getPendingIntent(DECLINE_ACTION), getPendingIntent(ANSWER_ACTION));
 
+            notificationStyle.setAnswerButtonColorHint(Color.parseColor(mSettings.getAnswerButtonColor()));
+            notificationStyle.setDeclineButtonColorHint(Color.parseColor(mSettings.getDeclineButtonColor()));
             notificationBuilder.setStyle((notificationStyle));
             notificationBuilder.setSmallIcon(R.drawable.answer_24);
             notificationBuilder.setForegroundServiceBehavior(Notification.FOREGROUND_SERVICE_IMMEDIATE);

@@ -57,6 +57,7 @@ hide() => Promise<void>
 | **`callerName`**                    | <code>string</code>  |
 | **`callerNumber`**                  | <code>string</code>  |
 | **`icon`**                          | <code>string</code>  |
+| **`picture`**                       | <code>string</code>  |
 | **`thereIsACallInProgress`**        | <code>boolean</code> |
 | **`declineButtonText`**             | <code>string</code>  |
 | **`declineButtonColor`**            | <code>string</code>  |
