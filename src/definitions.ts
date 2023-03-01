@@ -13,6 +13,7 @@ export interface IncomingCallNotificationSettings {
   declineSecondCallButtonColor: string;
   holdAndAnswerButtonText: string;
   holdAndAnswerButtonColor: string;
+  notificationBackgroundColor: string;
   channelName: string;
   channelDescription: string;
 }

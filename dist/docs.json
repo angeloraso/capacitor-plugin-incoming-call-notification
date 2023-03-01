@@ -147,6 +147,13 @@
           "type": "string"
         },
         {
+          "name": "notificationBackgroundColor",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
           "name": "channelName",
           "tags": [],
           "docs": "",
