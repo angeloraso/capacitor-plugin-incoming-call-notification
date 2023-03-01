@@ -85,13 +85,7 @@ public class IncomingCallNotificationService extends Service {
     }
 
     public void createNotification() {
-        RemoteViews customView;
-        Resources res = getResources();
-        String pkgName = getPackageName();
-
-        int iconResource = res.getIdentifier(mSettings.getIcon(), "drawable", pkgName);
-
-        String iconName = settings.getIcon();
+        String iconName = mSettings.getIcon();
         int iconResource = getIconResId(iconName);
         if (iconResource == 0) { // If no icon at all was found, fall back to the app's icon
             iconResource = getApplicationContext().getApplicationInfo().icon;
