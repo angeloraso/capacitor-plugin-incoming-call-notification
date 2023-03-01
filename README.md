@@ -68,7 +68,7 @@ hide() => Promise<void>
 | **`declineSecondCallButtonColor`**  | <code>string</code>  |
 | **`holdAndAnswerButtonText`**       | <code>string</code>  |
 | **`holdAndAnswerButtonColor`**      | <code>string</code>  |
-| **`notificationBackgroundColor`**   | <code>string</code>  |
+| **`color`**                         | <code>string</code>  |
 | **`channelName`**                   | <code>string</code>  |
 | **`channelDescription`**            | <code>string</code>  |
 

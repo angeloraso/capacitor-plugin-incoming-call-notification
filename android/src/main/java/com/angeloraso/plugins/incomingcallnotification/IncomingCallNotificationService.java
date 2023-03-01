@@ -118,8 +118,7 @@ public class IncomingCallNotificationService extends Service {
             .setVisibility(Notification.VISIBILITY_PUBLIC)
             // Make this notification automatically dismissed when the user touches it.
             .setAutoCancel(false)
-            .setColor(Color.parseColor(mSettings.getNotificationBackgroundColor()))
-            .setColorized(true)
+            .setColor(Color.parseColor(mSettings.getColor()))
             // Set whether or not this notification should not bridge to other devices.
             .setLocalOnly(true)
             .setFullScreenIntent(getPendingIntent(CLICK_ACTION), true);

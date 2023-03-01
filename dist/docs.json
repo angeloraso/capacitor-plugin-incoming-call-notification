@@ -147,7 +147,7 @@
           "type": "string"
         },
         {
-          "name": "notificationBackgroundColor",
+          "name": "color",
           "tags": [],
           "docs": "",
           "complexTypes": [],
