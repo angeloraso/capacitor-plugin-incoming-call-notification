@@ -74,8 +74,8 @@ public class IncomingCallNotificationPlugin extends Plugin {
         if (call.hasOption("callerNumber")) {
             settings.setCallerNumber((call.getString("callerNumber")));
         }
-        if (call.hasOption("picture")) {
-            settings.setPicture((call.getString("picture")));
+        if (call.hasOption("icon")) {
+            settings.setIcon((call.getString("icon")));
         }
         if (call.hasOption("thereIsACallInProgress")) {
             settings.setThereIsACallInProgress((call.getBoolean("thereIsACallInProgress")));

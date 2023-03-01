@@ -63,7 +63,7 @@
           "type": "string"
         },
         {
-          "name": "picture",
+          "name": "icon",
           "tags": [],
           "docs": "",
           "complexTypes": [],

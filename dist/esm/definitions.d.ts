@@ -1,7 +1,7 @@
 export interface IncomingCallNotificationSettings {
     callerName: string;
     callerNumber: string;
-    picture: string;
+    icon: string;
     thereIsACallInProgress: boolean;
     declineButtonText: string;
     declineButtonColor: string;

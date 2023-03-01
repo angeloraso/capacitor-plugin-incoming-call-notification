@@ -89,7 +89,13 @@ public class IncomingCallNotificationService extends Service {
         Resources res = getResources();
         String pkgName = getPackageName();
 
-        int pictureResource = res.getIdentifier(mSettings.getPicture(), "drawable", pkgName);
+        int iconResource = res.getIdentifier(mSettings.getIcon(), "drawable", pkgName);
+
+        String iconName = settings.getIcon();
+        int iconResource = getIconResId(iconName);
+        if (iconResource == 0) { // If no icon at all was found, fall back to the app's icon
+            iconResource = getApplicationContext().getApplicationInfo().icon;
+        }
 
         final String CHANNEL_ID = "incoming-call-notification-channel-id";
         final int CHANNEL_IMPORTANCE = NotificationManager.IMPORTANCE_HIGH;
@@ -127,7 +133,7 @@ public class IncomingCallNotificationService extends Service {
 
         // Android 12+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !thereIsACallInProgress) {
-            Icon icon = Icon.createWithResource(this, pictureResource);
+            Icon icon = Icon.createWithResource(this, iconResource);
             Person caller = new Person.Builder()
                 .setIcon(icon)
                 .setName(mSettings.getCallerName() + " - " + mSettings.getCallerNumber())
@@ -142,7 +148,7 @@ public class IncomingCallNotificationService extends Service {
             notificationBuilder.setSmallIcon(R.drawable.answer_24);
             notificationBuilder.setForegroundServiceBehavior(Notification.FOREGROUND_SERVICE_IMMEDIATE);
         } else {
-            notificationBuilder.setSmallIcon(pictureResource);
+            notificationBuilder.setSmallIcon(iconResource);
             notificationBuilder.setContentIntent(getPendingIntent(CLICK_ACTION));
             notificationBuilder.setContentText(mSettings.getCallerName() + " - " + mSettings.getCallerNumber());
 
@@ -239,5 +245,43 @@ public class IncomingCallNotificationService extends Service {
      */
     private NotificationManager getNotificationManager() {
         return (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+    }
+
+    /**
+     * Retrieves the resource ID of the sent icon name
+     *
+     * @param name Name of the resource to return
+     */
+    private int getIconResId(String name) {
+        int resId = getIconResId(name, "mipmap");
+
+        if (resId == 0) {
+            resId = getIconResId(name, "drawable");
+        }
+
+        if (resId == 0) {
+            resId = getIconResId("icon", "mipmap");
+        }
+
+        if (resId == 0) {
+            resId = getIconResId("icon", "drawable");
+        }
+
+        return resId;
+    }
+
+    /**
+     * Retrieve resource id of the specified icon.
+     *
+     * @param icon The name of the icon.
+     * @param type The resource type where to look for.
+     *
+     * @return The resource id or 0 if not found.
+     */
+    private int getIconResId(String icon, String type) {
+        Resources res = getResources();
+        String pkgName = getPackageName();
+
+        return res.getIdentifier(icon, type, pkgName);
     }
 }
