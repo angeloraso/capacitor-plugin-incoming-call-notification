@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.angeloraso.plugins.incomingcallnotification">
+    package="com.angeloraso.plugins.incomingcallnotification" >
 
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application>
-        <receiver
-            android:name=".IncomingCallNotificationReceiver"
+        <activity
+            android:name=".IncomingCallFullNotificationActivity"
             android:enabled="true"
-            android:exported="false">
-        </receiver>
+            android:launchMode="singleTask"
+            android:exported="false" >
+        </activity>
 
-        <service
-              android:name=".IncomingCallNotificationService"
-              android:enabled="true"
-              android:foregroundServiceType="microphone|phoneCall"
-              android:exported="false"></service>
+        <activity
+          android:name=".IncomingCallNotificationActivity"
+          android:enabled="true"
+          android:launchMode="singleTask"
+          android:taskAffinity=""
+          android:excludeFromRecents="true"
+          android:exported="false" >
+        </activity>
+
+      <service
+            android:name=".IncomingCallNotificationService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="microphone|phoneCall" />
     </application>
 
 </manifest>

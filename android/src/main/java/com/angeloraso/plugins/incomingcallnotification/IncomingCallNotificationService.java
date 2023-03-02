@@ -16,7 +16,6 @@ import android.os.Build;
 import android.os.IBinder;
 import android.provider.Settings;
 import android.text.Html;
-import android.widget.RemoteViews;
 
 public class IncomingCallNotificationService extends Service {
 
@@ -124,12 +123,23 @@ public class IncomingCallNotificationService extends Service {
             .setVisibility(Notification.VISIBILITY_PUBLIC)
             // Make this notification automatically dismissed when the user touches it.
             .setAutoCancel(false)
+            .setContentIntent(getPendingIntent(CLICK_ACTION))
             .setColor(Color.parseColor(mSettings.getColor()))
             // Set whether or not this notification should not bridge to other devices.
-            .setLocalOnly(true)
-            .setFullScreenIntent(getPendingIntent(CLICK_ACTION), true);
+            .setLocalOnly(true);
 
         Boolean thereIsACallInProgress = mSettings.getThereIsACallInProgress();
+
+        Context context = getApplicationContext();
+        Intent intent = new Intent(context, IncomingCallFullNotificationActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+            context,
+            0,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+        notificationBuilder.setFullScreenIntent(pendingIntent, true);
 
         // Android 12+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !thereIsACallInProgress) {
@@ -151,7 +161,6 @@ public class IncomingCallNotificationService extends Service {
             notificationBuilder.setForegroundServiceBehavior(Notification.FOREGROUND_SERVICE_IMMEDIATE);
         } else {
             notificationBuilder.setSmallIcon(iconResource);
-            notificationBuilder.setContentIntent(getPendingIntent(CLICK_ACTION));
             notificationBuilder.setContentText(mSettings.getCallerName() + " - " + mSettings.getCallerNumber());
 
             if (thereIsACallInProgress) {
@@ -236,10 +245,10 @@ public class IncomingCallNotificationService extends Service {
 
     private PendingIntent getPendingIntent(String action) {
         Context context = getApplicationContext();
-        Intent intent = new Intent(context, IncomingCallNotificationReceiver.class);
+        Intent intent = new Intent(context, IncomingCallNotificationActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.setAction(action);
-        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        return PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
     /**
